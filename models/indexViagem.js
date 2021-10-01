@@ -1,7 +1,7 @@
+//arquivo model da tabela viagem
 const Motorista = require("../models/indexMotorista");
 const Carro = require("../models/indexCarro");
 const server = require("../server");
-
 
 const Viagem = server.sequelize.define('viagem',{
     id: {
@@ -34,13 +34,10 @@ const Viagem = server.sequelize.define('viagem',{
     }
 });
 
-
 //Motorista.belongsToMany(Carro, {through: 'Viagem'});
 //Carro.belongsToMany(Motorista, {through: 'Viagem'});
 
 //Criar tabela
-//Carro.sync({force: true});
-//Motorista.sync({force: true});
 //Viagem.sync({force: true});
 
 module.exports = Viagem;

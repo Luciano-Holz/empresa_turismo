@@ -17,11 +17,11 @@
             }
 
             .nave {
-                margin-bottom: 15px;
-                background-color: rgb(209, 216, 250);
+                margin-bottom: 5px;
+                background-color: rgba(127, 145, 233, 0.671);
             }
             .nave2 {
-                background-color: rgb(209, 216, 250);
+                background-color: rgba(127, 145, 233, 0.671);
             }
             li {
                 display: inline-flex;
@@ -44,18 +44,21 @@
             .campos {
                 float: left;
                 width: 30%;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
                 margin-left: 30px;
             }
             .campos2 {
                 width: 46%;
                 float: left;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
                 margin-left: 28px;
+            }
+            label {
+                font-size: 16px;
             }
 
             .table {
-                margin-top: 25px;
+                margin-top: 10px;
             }
 
             .titulo {
@@ -75,6 +78,23 @@
                 margin-top: 10px;
                 float: right;
                 right: 20px;
+            }
+
+            .btn-edit {
+                background-color: rgb(96, 238, 103);
+                height: 35px;
+                margin-top: 0;
+            }
+            .btn-edit:hover {
+                background-color: rgb(50, 170, 56);
+            }
+            .btn-delete {
+                background-color: rgb(238, 125, 96);
+                height: 35px;
+                margin-top: 0;
+            }
+            .btn-delete:hover {
+                background-color: rgb(192, 73, 43);
             }
 
         </style>
@@ -117,16 +137,12 @@
                         <div >
                             <button class="btn btn-primary" type="submit">Cadastrar</button>
                         </div>
-                    </div>  
-                    
+                    </div>    
                 </form>
-                
             </section>
             <section class="resultado">
-                
                 <table class="table">
-                    <thead class="nave2">
-                        <h3>Lista de Viagens</h3>
+                    <thead class="nave2">  
                         <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Destino</th>
@@ -134,6 +150,9 @@
                             <th scope="col">Data Retorno</th>
                             <th scope="col">Cnh Motorista</th>
                             <th scope="col">Renavam Carro</th>
+                            <th></th>
+                            <th></th>
+                            <th><h3>Viagens</h3></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -145,8 +164,9 @@
                                 <td>{{#formatDate dataValues.dataRetorno}}{{/formatDate}}</td>
                                 <td>{{dataValues.cnhMotorista}}</td>
                                 <td>{{dataValues.renavamCarro}}</td>
-                                <td><a href="/del-viagem/{{dataValues.id}}"><button class="btnDeletar">Deletar</button></a></td>
-                                <td><a href="/edit-viagem/{{dataValues.id}}"><button class="btnEditar">Editar</button></a></td>
+                                <td></td>
+                                <td><a href="/edit-viagem/{{dataValues.id}}"><button class="btn btn-primary btn-edit">Editar</button></a></td>
+                                <td><a href="/del-viagem/{{dataValues.id}}"><button class="btn btn-primary btn-delete">Deletar</button></a></td>
                             </tr>
                         {{/each}}
                     </tbody>

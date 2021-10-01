@@ -1,3 +1,4 @@
+//arquivo model da tabela motorista
 const Sequelize  = require('sequelize');
 const server = require('../server');
 

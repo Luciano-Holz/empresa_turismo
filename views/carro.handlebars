@@ -1,3 +1,4 @@
+<!--arquivo da pagina carro -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,11 +18,11 @@
         }
 
         .nave {
-            margin-bottom: 15px;
-            background-color: rgb(209, 216, 250);
+            margin-bottom: 5px;
+            background-color: rgba(127, 145, 233, 0.671);
         }
         .nave2 {
-            background-color: rgb(209, 216, 250);
+            background-color: rgba(127, 145, 233, 0.671);
         }
         li {
             display: inline-flex;
@@ -44,18 +45,21 @@
         .campos {
             float: left;
             width: 30%;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             margin-left: 30px;
         }
         .campos2 {
             width: 46%;
             float: left;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             margin-left: 28px;
+        }
+        .resultado {
+            max-height: 100px;
         }
 
         .table {
-            margin-top: 25px;
+            margin-top: 10px;
         }
 
         .titulo {
@@ -77,8 +81,25 @@
             right: 20px;
         }
 
+        .btn-edit {
+            background-color: rgb(96, 238, 103);
+            height: 35px;
+            margin-top: 0;
+        }
+        .btn-edit:hover {
+            background-color: rgb(50, 170, 56);
+        }
+        .btn-delete {
+            background-color: rgb(238, 125, 96);
+            height: 35px;
+            margin-top: 0;
+        }
+        .btn-delete:hover {
+            background-color: rgb(192, 73, 43);
+        }
+
     </style>
-    <title>Empresa de Turismo Carro</title>
+    <title>Empresa de Turismo</title>
 </head>
 <body>
     <div class="container">
@@ -89,7 +110,7 @@
                 <li><a href="/motorista/{{dataValues.id}}">Motoristas</a></li>
             </ul>
         </nav>
-        <section class="cadastro">
+        <section class="cadastro"><!--formulário para cadastro de  carros -->
             <form class="row g-3 " action="/carro" method="POST">
                 <div class="campos2">
                     <div class="col-md-12">
@@ -122,15 +143,17 @@
             
         </section>
         <section class="resultado">
-            <table class="table">
+            <table class="table"><!--tabela para exibir carros -->
                 <thead class="nave2">
-                    <h3>Lista de Carros</h3>
+                    
                   <tr>
                     <th scope="col">Renavam</th>
                     <th scope="col">Modelo</th>
                     <th scope="col">Passageiros</th>
                     <th scope="col">Fabricação</th>
                     <th scope="col">Placa</th>
+                    <th></th>
+                    <th><h3>Carros</h3></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -141,8 +164,8 @@
                             <td>{{dataValues.passageiros}}</td>
                             <td>{{#formatDate dataValues.fabricacao}}{{/formatDate}}</td>
                             <td>{{dataValues.placa}}</td>
-                            <td><a href="/del-carro/{{dataValues.id}}"><button class="btnDeletar">Deletar</button></a></td>
-                            <td><a href="/edit-carro/{{dataValues.id}}"><button class="btnEditar">Editar</button></a></td>
+                            <td><a href="/edit-carro/{{dataValues.id}}"><button class="btn btn-primary btn-edit">Editar</button></a></td>
+                            <td><a href="/del-carro/{{dataValues.id}}"><button class="btn btn-primary btn-delete">Deletar</button></a></td>
                         </tr>
                   {{/each}}
                 </tbody>

@@ -19,11 +19,11 @@
     }
 
     .nave {
-        margin-bottom: 15px;
-        background-color: rgb(209, 216, 250);
+        margin-bottom: 5px;
+        background-color: rgba(127, 145, 233, 0.671);
     }
     .nave2 {
-        background-color: rgb(209, 216, 250);
+        background-color: rgba(127, 145, 233, 0.671);
     }
     li {
         display: inline-flex;
@@ -46,18 +46,18 @@
     .campos {
         float: left;
         width: 30%;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         margin-left: 30px;
     }
     .campos2 {
         width: 46%;
         float: left;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         margin-left: 28px;
     }
 
     .table {
-        margin-top: 25px;
+        margin-top: 10px;
     }
 
     .titulo {
@@ -77,6 +77,23 @@
         margin-top: 10px;
         float: right;
         right: 20px;
+    }
+
+    .btn-edit {
+        background-color: rgb(96, 238, 103);
+        height: 35px;
+        margin-top: 0;
+    }
+    .btn-edit:hover {
+        background-color: rgb(50, 170, 56);
+    }
+    .btn-delete {
+        background-color: rgb(238, 125, 96);
+        height: 35px;
+        margin-top: 0;
+    }
+    .btn-delete:hover {
+        background-color: rgb(192, 73, 43);
     }
 
     td {
@@ -149,7 +166,6 @@
         <section class="resultado">
             <table class="table">
                 <thead class="nave2">
-                    <h3>Lista de Motoristas</h3>
                   <tr>
                     <th scope="col">Cnh</th>
                     <th scope="col">Nome</th>
@@ -161,9 +177,11 @@
                     <th scope="col">Bairro</th>
                     <th scope="col">Cidade</th>
                     <th scope="col">UF</th>
+                    <th></th>
+                    <th><h5>Motoristas</h5></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="tabela">
                     {{#each motoristas}}
                         <tr>
                             <td>{{dataValues.cnh}}</td>
@@ -176,8 +194,9 @@
                             <td>{{dataValues.bairro}}</td>
                             <td>{{dataValues.cidade}}</td>
                             <td>{{dataValues.uf}}</td>
-                            <td><a href="/del-motorista/{{dataValues.id}}"><button class="btnDeletar">Deletar</button></a></td>
-                            <td><a href="/edit-motorista/{{dataValues.id}}"><button class="btnEditar">Editar</button></a></td>
+                            
+                            <td><a href="/edit-motorista/{{dataValues.id}}"><button class="btn btn-primary btn-edit">Editar</button></a></td>
+                            <td><a href="/del-motorista/{{dataValues.id}}"><button class="btn btn-primary btn-delete">Deletar</button></a></td>
                         </tr>
                     {{/each}}  
                 </tbody>

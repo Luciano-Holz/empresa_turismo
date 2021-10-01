@@ -1,4 +1,4 @@
-
+//arquivo model da tabela carro 
 const server = require("../server");
 
 const Carro = server.sequelize.define('carro',{
