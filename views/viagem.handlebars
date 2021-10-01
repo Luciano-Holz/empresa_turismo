@@ -85,8 +85,8 @@
             <nav class="nave">
                 <ul>
                     <li><h3>Cadastro de Viagens</h3></li>
-                    <li><a href="/carro/{{dataValues.id}}">Carro</a></li>
-                    <li><a href="/motorista/{{dataValues.id}}">Motorista</a></li>
+                    <li><a href="/carro/{{dataValues.id}}">Carros</a></li>
+                    <li><a href="/motorista/{{dataValues.id}}">Motoristas</a></li>
                 </ul>
             </nav>
             <section class="cadastro">
@@ -123,16 +123,18 @@
                 
             </section>
             <section class="resultado">
+                
                 <table class="table">
                     <thead class="nave2">
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Destino</th>
-                        <th scope="col">Data Saída</th>
-                        <th scope="col">Data Retorno</th>
-                        <th scope="col">Cnh Motorista</th>
-                        <th scope="col">Renavam Carro</th>
-                    </tr>
+                        <h3>Lista de Viagens</h3>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Destino</th>
+                            <th scope="col">Data Saída</th>
+                            <th scope="col">Data Retorno</th>
+                            <th scope="col">Cnh Motorista</th>
+                            <th scope="col">Renavam Carro</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {{#each viagem}}

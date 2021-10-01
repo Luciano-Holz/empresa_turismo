@@ -165,27 +165,7 @@
                     <th scope="col">UF</th>
                   </tr>
                 </thead>
-                <tbody>
-                    {{#each motoristas}}
-                        <tr>
-                            <td>{{motorista.cnh}}</td>
-                            <td>{{motorista.nome}}</td>
-                            <td>{{#formatDate dataValues.nascimento}}{{/formatDate}}</td>
-                            <td>{{dataValues.sexo}}</td>
-                            <td>{{dataValues.telefone}}</td>
-                            <td>{{dataValues.rua}}</td>
-                            <td>{{dataValues.numero}}</td>
-                            <td>{{dataValues.bairro}}</td>
-                            <td>{{dataValues.cidade}}</td>
-                            <td>{{dataValues.uf}}</td>
-                            <td><a href="/del-motorista/{{dataValues.id}}"><button class="btnDeletar">Deletar</button></a></td>
-                            <td><a href="/motorista/{{dataValues.id}}"><button class="btnEditar">Editar</button></a></td>
-                        
-                        
-                        
-                        </tr>
-                    {{/each}}  
-                </tbody>
+                
             </table>
             <br><br>
         </section>

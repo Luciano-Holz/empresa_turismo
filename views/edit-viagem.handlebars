@@ -85,12 +85,12 @@
             <nav class="nave">
                 <ul>
                     <li><h3>Cadastro de Viagens</h3></li>
-                    <li><a href="/carro/{{dataValues.id}}">Carro</a></li>
-                    <li><a href="/motorista/{{dataValues.id}}">Motorista</a></li>
+                    <li><a href="/carro/{{dataValues.id}}">Carros</a></li>
+                    <li><a href="/motorista/{{dataValues.id}}">Motoristas</a></li>
                 </ul>
             </nav>
             <section class="cadastro">
-                <form class="row g-3 " action="/viagem" method="POST">
+                <form class="row g-3 " action="/viagem-edit" method="POST">
                     <div class="campos2">
                         <div class="col-md-12">
                             <label for="destino" class="form-label">Id</label>
@@ -136,20 +136,7 @@
                         <th scope="col">Renavam Carro</th>
                     </tr>
                     </thead>
-                    <tbody>
-                        {{#each viagem}}
-                            <tr>
-                                <td>{{viagem.id}}</td>
-                                <td>{{viagem.destino}}</td>
-                                <td>{{#formatDate dataValues.dataSaida}}{{/formatDate}}</td>
-                                <td>{{#formatDate dataValues.dataRetorno}}{{/formatDate}}</td>
-                                <td>{{dataValues.cnhMotorista}}</td>
-                                <td>{{dataValues.renavamCarro}}</td>
-                                <td><a href="/del-viagem/{{dataValues.id}}"><button class="btnDeletar">Deletar</button></a></td>
-                                <td><a href="/viagem/{{dataValues.id}}"><button class="btnEditar">Editar</button></a></td>
-                            </tr>
-                        {{/each}}
-                    </tbody>
+                   
                 </table>
             </section>
         </div>

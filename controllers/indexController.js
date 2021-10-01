@@ -95,40 +95,18 @@ app.use(express.json());
         })
       });
 
-    // app.post('/motorista', (req, res) => {
-    //     const motorista = req.body;
-    //     Motorista.adiciona(motorista, res );
-    // });
-    // app.get('/motorista', (req, res) => {
-    //     Motorista.lista(res);
-    //     res.send('/motorista');
-    // });
-    // app.get('/motorista/:id', (req, res) => {
-    //     const id = parseInt(req.params.id);
-    //     console.log(id);
-    //     Motorista.buscaId(id, res);
-    // });
-    // app.patch('/motorista/:id', (req, res) => {
-    //     const id = parseInt(req.params.id);
-    //     const valores = req.body;
-    //     Motorista.altera(id, valores, res);
-    // });
-    // app.delete('/motorista/:id', (req, res) => {
-    //     const id = parseInt(req.params.id);
-    //     Motorista.deleta(id, res);
-    // });
-
     // /////////Rotas para a tabela carro/////////
+    //rota para mostrar todos os carros
     app.get('/carro', (req, res) => {
         Carro.findAll().then((carros) => {
             res.render('carro', {carros: carros});
         })  
     })
-
+    //rota para mostrar a pagina carro
     app.get('/carro', (req, res) => {
         res.render('carro')
     })
-
+    //rota para cadastrar carro
     app.post('/carro', function(req, res){
         Carro.create({
             id: req.body.id,
@@ -151,7 +129,7 @@ app.use(express.json());
           res.redirect("/carro" + erro)
         })
       });
-      //para editar carro
+      //rota para editar carro
       app.post('/carro-edit', (req, res) => {
         Carro.findOne({id: req.body.id}).then((carro) =>{
             carro.id = req.body.id
@@ -160,7 +138,6 @@ app.use(express.json());
             carro.fabricacao = req.body.fabricacao
             carro.placa = req.body.placa
             carro.save().then(() => {
-                //res.send('Sucesso')
                 res.redirect('/carro')
             })
         }).catch((erro) =>{
@@ -168,38 +145,16 @@ app.use(express.json());
           res.redirect('/carro')
         })
       });
-    //rota deletar
+    //rota deletar carro
     app.get("/del-carro/:id", function(req, res) {
         Carro.destroy({
           where: {'id': req.params.id}
         }).then(function(){
           res.redirect("/carro")
         }).catch(function(erro){
-          res.send('Carro não apagado!');
+          res.send('Carro não apagado!')
         })
       });
-  
-    // app.post('/carro', (req, res) => {
-    //     const carro = req.body;
-    //     Carro.adiciona(carro, res);
-    // })
-    // app.get('/carro', (req, res) => {
-    //     Carro.lista(res);
-    // });
-    // app.get('/carro/:id', (req,res) => {
-    //     const id = parseInt(req.params.id);
-    //     console.log(id);
-    //     Carro.buscaId(id, res);
-    // });
-    // app.patch('/carro/:id', (req, res) => {
-    //     const id = parseInt(req.params.id);
-    //     const valores = req.body;
-    //     Carro.altera(id, valores, res);
-    // });
-    // app.delete('/carro/:id', (req, res) => {
-    //     const id = parseInt(req.params.id);
-    //     Carro.deleta(id, res);
-    // });
     
     // // ////////Rotas para a tabela viagem
     
@@ -210,7 +165,8 @@ app.use(express.json());
     })
     app.get('/viagem', (req, res) => {
         res.render('viagem')
-    })
+    });
+    //rota para cadastrar viagem
     app.post('/viagem', function(req, res){
         Viagem.create({
             destino: req.body.destino,
@@ -224,15 +180,6 @@ app.use(express.json());
           res.send("Erro: Cadastro de viagem nao realizado!" + erro)
         })
     });
-    app.get("/del-viagem/:id", function(req, res) {
-        Viagem.destroy({
-          where: {'id': req.params.id}
-        }).then(function(){
-          res.redirect("/viagem")
-        }).catch(function(erro){
-          res.send('Viagem não apagada!');
-        })
-      });
       //rota receber viagem
     app.get('/edit-viagem/:id', function(req, res){
         Viagem.findOne({id:req.params.id}).then((viagem) => {
@@ -241,17 +188,16 @@ app.use(express.json());
             res.redirect("/viagem" + erro)
         })
     });
+    
     //rota para atualizar viagem
     app.post('/viagem-edit', (req, res) => {
         Viagem.findOne({id: req.body.id}).then((viagem) =>{
-            viagem.id = req.body.id
             viagem.destino = req.body.destino
             viagem.dataSaida = req.body.dataSaida
             viagem.dataRetorno = req.body.dataRetorno
             viagem.cnhMotorista = req.body.cnhMotorista
             viagem.renavamCarro = req.body.renavamCarro
             viagem.save().then(() => {
-                //res.send('Sucesso')
                 res.redirect('/viagem')
             })
         }).catch((erro) =>{
@@ -259,26 +205,15 @@ app.use(express.json());
           res.redirect('/viagem')
         })
       });
+      //rota para apagar viagem
+      app.get("/del-viagem/:id", function(req, res) {
+        Viagem.destroy({
+          where: {'id': req.params.id}
+        }).then(function(){
+          res.redirect("/viagem")
+        }).catch(function(erro){
+          res.send('Viagem não apagada!')
+        })
+      });
 
-    // app.post('/viagem', (req, res) => {
-    //     const viagem = req.body;
-    //     Viagem.adiciona(viagem, res);
-    // })
-    // app.get('/viagem', (req, res) => {
-    //     Viagem.lista(res);
-    // });
-    // app.get('/viagem/:id', (req,res) => {
-    //     const id = parseInt(req.params.id);
-    //     console.log(id);
-    //     Viagem.buscaId(id, res);
-    // });
-    // app.patch('/viagem/:id', (req, res) => {
-    //     const id = parseInt(req.params.id);
-    //     const valores = req.body;
-    //     Viagem.altera(id, valores, res);
-    // });
-    // app.delete('/viagem/:id', (req, res) => {
-    //     const id = parseInt(req.params.id);
-    //     Viagem.deleta(id, res);
-    // });
 app.listen(8080, () => console.log("Conectado na porta 8080!"))

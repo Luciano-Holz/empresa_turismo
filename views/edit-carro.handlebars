@@ -135,19 +135,7 @@
                     <th scope="col">Placa</th>
                   </tr>
                 </thead>
-                <tbody>
-                    {{#each carros}}
-                        <tr>
-                            <td>{{dataValues.renavam}}</td>
-                            <td>{{dataValues.modelo}}</td>
-                            <td>{{dataValues.passageiros}}</td>
-                            <td>{{#formatDate dataValues.fabricacao}}{{/formatDate}}</td>
-                            <td>{{dataValues.placa}}</td>
-                            <td><a href="/del-carro/{{dataValues.id}}"><button class="btnDeletar">Deletar</button></a></td>
-                            <td><a href="/carro/{{dataValues.id}}"><button class="btnEditar">Editar</button></a></td>
-                        </tr>
-                  {{/each}}
-                </tbody>
+               
               </table>
         </section>
     </div>
