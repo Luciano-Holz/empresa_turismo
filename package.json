@@ -2,9 +2,9 @@
   "name": "projeto",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon controllers/indexController.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -14,14 +14,14 @@
   "author": "Luciano",
   "license": "ISC",
   "dependencies": {
-    "consign": "^0.1.6",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.3.4",
-    "moment": "^2.29.1",
-    "mysql2": "^2.3.0",
-    "sequelize": "^6.6.5"
+    "consign": "0.1.6",
+    "express": "4.17.1",
+    "express-handlebars": "5.3.4",
+    "moment": "2.29.1",
+    "mysql2": "2.3.0",
+    "sequelize": "6.6.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "nodemon": "2.0.12"
   }
 }

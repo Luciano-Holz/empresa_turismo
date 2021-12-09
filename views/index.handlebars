@@ -26,8 +26,6 @@
             li {
                 display: inline-flex;
                 padding: 10px;
-                margin-right: 120px;
-                margin-left: -12px;
             }
             a {
                 text-decoration: none;
@@ -80,22 +78,12 @@
                 right: 20px;
             }
 
-            .btn-edit {
-                background-color: rgb(96, 238, 103);
+            .btn-login {
                 height: 35px;
-                margin-top: 0;
+                margin-bottom: -5px;
+                margin-left: 400px;
             }
-            .btn-edit:hover {
-                background-color: rgb(50, 170, 56);
-            }
-            .btn-delete {
-                background-color: rgb(238, 125, 96);
-                height: 35px;
-                margin-top: 0;
-            }
-            .btn-delete:hover {
-                background-color: rgb(192, 73, 43);
-            }
+            
 
         </style>
         <title>Empresa de Turismo Viagem</title>
@@ -104,43 +92,12 @@
         <div class="container">
             <nav class="nave">
                 <ul>
-                    <li><h3>Cadastro de Viagens</h3></li>
-                    <li><a href="/carro/{{dataValues.id}}">Carros</a></li>
-                    <li><a href="/motorista/{{dataValues.id}}">Motoristas</a></li>
-                    <li><a href="/pessoa/{{dataValues.id}}">Pessoas</a><br></li>
+                    <li><h3>Lista de Viagens</h3></li>
+                    <li><a href="/login/{{dataValues.id}}"><button class="btn btn-primary btn-login">Fazer Login</button></a></li>
+                    
                 </ul>
             </nav>
-            <section class="cadastro">
-                <form class="row g-3 " action="/viagem" method="POST">
-                    <div class="campos2">
-                        <div class="col-md-12">
-                            <label for="destino" class="form-label">Destino</label>
-                            <input type="text" class="form-control" name="destino" id="destino"  required>
-                        </div>
-                        <div class="col-md-12">
-                                <label for="dataRetorno" class="form-label">Data Retorno</label>
-                                <input type="date" class="form-control" name="dataRetorno" id="dataRetorno"  required>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="renavamCarro" class="form-label">Renavam Carro</label>
-                            <input type="text" class="form-control" name="renavamCarro" id="renavamCarro" required>  
-                        </div>  
-                    </div>
-                    <div class="campos2">
-                        <div class="col-md-12">
-                            <label for="dataSaida" class="form-label">Data Saída</label>
-                            <input type="date" class="form-control" name="dataSaida" id="dataSaida"  required>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="cnhMotorista" class="form-label">Cnh Motorista</label>
-                            <input type="text" class="form-control" name="cnhMotorista" id="cnhMotorista"  required>  
-                        </div>
-                        <div >
-                            <button class="btn btn-primary" type="submit">Cadastrar</button>
-                        </div>
-                    </div>    
-                </form>
-            </section>
+           
             <section class="resultado">
                 <table class="table">
                     <thead class="nave2">  
@@ -153,7 +110,6 @@
                             <th scope="col">Renavam Carro</th>
                             <th></th>
                             <th></th>
-                            <th><h3>Viagens</h3></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -166,8 +122,6 @@
                                 <td>{{dataValues.cnhMotorista}}</td>
                                 <td>{{dataValues.renavamCarro}}</td>
                                 <td></td>
-                                <td><a href="/edit-viagem/{{dataValues.id}}"><button class="btn btn-primary btn-edit">Editar</button></a></td>
-                                <td><a href="/del-viagem/{{dataValues.id}}"><button class="btn btn-primary btn-delete">Deletar</button></a></td>
                             </tr>
                         {{/each}}
                     </tbody>
